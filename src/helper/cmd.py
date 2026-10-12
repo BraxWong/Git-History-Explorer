@@ -1,12 +1,7 @@
 from sys import platform
-from enum import Enum
+from model.OperatingSystem import OS 
+from model.CommandErrors import CommandErrors
 import subprocess
-
-class OS(Enum):
-    LINUX = 1
-    APPLE = 2
-    WINDOWS = 3
-    OTHERS = 4
 
 class CMD:
 
@@ -30,8 +25,11 @@ class CMD:
             cmd_output = output.stdout 
         except subprocess.TimeoutExpired as e:
             print(f"Timeout: {e}")
+            cmd_output = CommandErrors.TIMEOUT
         except subprocess.CalledProcessError as e:
             print(f"Error: {e}")
+            cmd_output = CommandErrors.CALLEDPROCESSERROR
         except FileNotFoundError as e:
             print(f"Command not found: {e}")
+            cmd_output = CommandErrors.COMMANDNOTFOUND
         return cmd_output
