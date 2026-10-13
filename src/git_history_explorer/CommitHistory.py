@@ -1,4 +1,4 @@
-from helper.cmd import CMD
+from git_history_explorer.helper.cmd import CMD
 class CommitHistory:
     def __init__(self, provider, repo_url, github_token, gitlab_token):
         self.repo_provider = provider 

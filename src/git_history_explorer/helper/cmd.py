@@ -1,6 +1,6 @@
 from sys import platform
-from model.OperatingSystem import OS 
-from model.CommandErrors import CommandErrors
+from git_history_explorer.model.OperatingSystem import OS
+from git_history_explorer.model.CommandErrors import CommandErrors
 import subprocess
 
 class CMD:
